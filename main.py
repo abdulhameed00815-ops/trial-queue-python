@@ -1,3 +1,4 @@
+#a simple object that defines an item in the queue, this object contains its value and a pointer to the next object in the queue
 class Node:
     def __init__(self, value):
         self.value = value
@@ -9,11 +10,13 @@ class Queue:
         self.front = None
         self.rear = None
         self.size = 0
+        self.capacity = 6
 
+    #a method to count queued items
     def __len__(self):
         return self.size
 
-    #that is the only constructor with linear time.
+    #that is the only method with linear time, as it prints each and every queued item.
     def __repr__(self):
         items = []
         current_item = self.front
@@ -22,10 +25,13 @@ class Queue:
             items.append(str(current_item.value))
             current_item = current_item.next
 
-            return ', '.join(items)
+        return ', '.join(items)
 
     def enqueue(self, value):
         new_node = Node(value)
+
+        if self.size == self.capacity:
+            raise IndexError('Queue is full')
 
         if self.rear is None:
             self.front = self.rear = new_node
@@ -33,7 +39,7 @@ class Queue:
             self.rear.next = new_node
             self.rear = new_node
 
-            self.size += 1
+        self.size += 1
 
     def dequeue(self):
         if self.front is None:
@@ -57,7 +63,7 @@ class Queue:
         return self.front is None
 
 
-
+#the code below gets executed if the code is run directly using "python3 main.py".
 if __name__ == '__main__':
     queue = Queue()
 
