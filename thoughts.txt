@@ -1,0 +1,1 @@
+okay, so what we learnt yesterday was, we only queue tasks (functions), and by that we will need a producer function (a function that queues tasks) and a consumer function (a function that dequeues tasks and then executes them), rate limiting is already done by our queue logic so we dont have to tell our producer function to do anything rather than queueing tasks.
