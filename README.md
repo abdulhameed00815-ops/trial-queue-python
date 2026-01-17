@@ -1,4 +1,9 @@
-# Project goals (could change)
+# Project features:
 
-1-learn how to queue jobs.
-2-learn how to allow fastapi to receive a request, turn it into a job then put the job in the queue.
+1-the project can queue basic functions and dequeue them using python's built in queue lib.
+<br/>
+2-the project uses threading to run both the producer and consumer functions simultaneously.
+
+# The next logical steps:
+
+1-pick up one of my repos with a http server, and try to implement queueing in it.
